@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Js exercise 01</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.0.js"></script>
+    <script src="main.js"></script>
+    <style type="text/css">
+        h1, h2 {
+            margin-bottom: 30px;
+        }
+
+        .tabs-title {
+            padding: 0;
+            list-style: none;
+        }
+
+        .tabs-title li {
+            display: inline-block;
+            margin: 0;
+            
+        }
+
+        .tabs-title li a {
+            display: block;
+            padding: 5px 10px;
+            background-color: #ccc;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .tabs-title li a.active {
+            background-color: aqua;
+        }
+
+        .tab-content-wrapper .tab-content {
+            display: none;
+        }
+
+        .tab-content-wrapper .tab-content.active {
+            display: block;
+        }
+
+        /*Dropdown*/
+        .dropdown-wrapper {
+            padding: 20px;
+            background: #f1f1f1;
+        }
+        .dropdown-content {
+            display: none;
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            max-width: 290px;
+        }
+
+        .dropdown-icon {
+            background-color: yellow;
+            color: #333;
+            padding: 5px;
+            width: auto;
+            max-width: 100px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        /*Slider*/
+        .slider-content {
+            padding: 0;
+            list-style: none;
+            width: 500px;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-content li {
+            transition: all .3s;
+            position: absolute;
+            z-index: 0;
+            top: 0;
+            left: -100%;
+        }
+
+        .slider-content li.active {
+            left: 0;
+            z-index: 100;
+        }
+
+        .slider-nav {
+            padding: 15px;
+            list-style: none;
+        }
+
+        .slider-nav li {
+            display: inline-block;
+            padding: 5px;
+        }
+
+        .slider-nav a {
+            display: block;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Js exercise 01</h1>
+    <h2>Tabs</h2>
+    <ul class="tabs-title">
+        <li><a href="javascript:void(0);" data-tab="1" class="active">Tab 1</a></li>
+        <li><a href="javascript:void(0);" data-tab="2">Tab 2</a></li>
+        <li><a href="javascript:void(0);" data-tab="3">Tab 3</a></li>
+    </ul>
+    <div class="tab-content-wrapper">
+        <div class="tab-content tab01 active" id="tab_content01">
+            <strong>Tab 1 content</strong>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+        <div class="tab-content tab02" id="tab_content02">
+            <strong>Tab 2 content</strong>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+        <div class="tab-content tab03" id="tab_content03">
+            <strong>Tab 3 content</strong>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        </div>
+    </div>
+    <h2>Dropdown</h2>
+    <div class="dropdown-wrapper">
+        <div class="dropdown-icon" data-dropdown="dropdown_01">click here</div>
+        <div class="dropdown-content" id="dropdown_01">
+            <h3>Title dropdown</h3>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        </div>
+    </div>
+    <h2>Slider</h2>
+    <div class="slider">
+        <ul class="slider-content">
+            <li class="active"><img src="image/slider-01.jpg" alt="slider 01" /></li>
+            <li><img src="image/slider-02.jpg" alt="slider 01" /></li>
+            <li><img src="image/slider-03.jpg" alt="slider 01" /></li>
+        </ul>
+        <ul class="slider-nav">
+            <li><a href="javascript:void(0);" class="prev">Prev</a></li>
+            <li><a href="javascript:void(0);" class="next">Next</a></li>
+        </ul>
+    </div>
+    <h2>Ajax login</h2>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="">
+    </div>
+    <br>
+    <div>
+        <label for="password">Password</label>
+        <input type="pass" id="pass" name="password" value="">
+    </div>
+    <br>
+    <div>
+        <button id="submit">Submit</button>
+    </div>
+    
+    <div id="result"></div>
+    <script type="text/javascript">
+        // Call tab
+        $.tab();
+        // Call dropdown
+        $.dropdownAction('.dropdown-icon','.dropdown-content', '.dropdown-wrapper');
+        // Call slider
+        $.slider();
+        //
+        $.login();
+    </script>
+</body>
+</html>
